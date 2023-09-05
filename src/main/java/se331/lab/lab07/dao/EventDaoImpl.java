@@ -145,25 +145,13 @@ public class EventDaoImpl implements EventDao {
     pageSize = pageSize == null ? eventList.size() : pageSize;
   // if true return eventList.size() but if false return pageSize
     page = page == null ? 1 : page;
-    Integer firstIndex = (page-1)*pageSize;
-    List<Event> output = new ArrayList<>();
-    for (int i = firstIndex; i < firstIndex + pageSize; i++) {
-      output.add(eventList.get(i));
-    }
-   return output;
+    int firstIndex = (page-1)*pageSize;
+    return eventList.subList(firstIndex, firstIndex+pageSize);
   }
 
   @Override
   public Event getEvent(Long id){
-    Event output = null;
-    for(Event event: eventList){
-      // access to the next Event object in eventList without having to manually index 
-      if(event.getId().equals(id)){
-        output = event;
-        break;
-      }
-    }
-    return output;
+    return eventList.stream().filter(event->event.getId().equals(id)).findFirst().orElse(null);
   }
 
 
