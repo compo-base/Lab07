@@ -7,7 +7,7 @@ import jakarta.annotation.PostConstruct;
 import se331.lab.lab07.entity.Event;
 
 @Repository
-public class EventDaoImpl implements EventDao {
+public class EventDaoImpl implements EventDao<Event> {
 
   List<Event> eventList;
 
@@ -15,7 +15,7 @@ public class EventDaoImpl implements EventDao {
   public void init(){
     eventList = new ArrayList<>();
     eventList.add(Event.builder()
-    .id(123L)
+    .id(1001L)
     .category("animal welfare")
     .title("Pat Adoption Day")
     .description("Fine your new Feline friend at this event.")
@@ -27,7 +27,7 @@ public class EventDaoImpl implements EventDao {
     .build());
 
     eventList.add(Event.builder()
-    .id(456L)
+    .id(1002L)
     .category("food")
     .title("Community Gardening")
     .description("Join us as we tendto the community edible ")
@@ -39,7 +39,7 @@ public class EventDaoImpl implements EventDao {
     .build());
 
     eventList.add(Event.builder()
-    .id(789L)
+    .id(1003L)
     .category("sustainability")
     .title("Beach Cleanup")
     .description("Help pick up trash along the shore.")
@@ -51,7 +51,7 @@ public class EventDaoImpl implements EventDao {
     .build());
 
     eventList.add(Event.builder()
-    .id(1001L)
+    .id(1004L)
     .category("animal welfare")
     .title(" Dog Adoption Day")
     .description("Find your new canine friend at this event.")
@@ -63,7 +63,7 @@ public class EventDaoImpl implements EventDao {
     .build());
 
     eventList.add(Event.builder()
-    .id(1002L)
+    .id(1005L)
     .category("food")
     .title("Canned Food Drive")
     .description("Bring your canned food to donate to those in need.")
@@ -75,7 +75,7 @@ public class EventDaoImpl implements EventDao {
     .build());
 
     eventList.add(Event.builder()
-    .id(1003L)
+    .id(1006L)
     .category("sustainability")
     .title("Highway Cleanup")
     .description("Help pick up trash along the highway.")
@@ -87,7 +87,7 @@ public class EventDaoImpl implements EventDao {
     .build());
 
     eventList.add(Event.builder()
-    .id(1004L)
+    .id(1007L)
     .category("music")
     .title("Jazz in the Park")
     .description("Enjoy an evening of soothing jazz music in Central Park.")
@@ -99,7 +99,7 @@ public class EventDaoImpl implements EventDao {
     .build());
 
     eventList.add(Event.builder()
-    .id(1005L)
+    .id(1008L)
     .category("charity")
     .title("Annual Charity Marathon")
     .description("Run for a cause in our annual charity marathon.")
@@ -111,7 +111,7 @@ public class EventDaoImpl implements EventDao {
     .build());
 
     eventList.add(Event.builder()
-    .id(1006L)
+    .id(1009L)
     .category("technology")
     .title("Tech Expo 2022")
     .description("Discover the latest in tech at our annual expo.")
@@ -122,17 +122,6 @@ public class EventDaoImpl implements EventDao {
     .organizer("Tech Innovators")
     .build());
 
-    eventList.add(Event.builder()
-    .id(1007L)
-    .category("art")
-    .title("Artists' Showcase")
-    .description("Explore diverse art forms from local artists.")
-    .location("City Art Gallery")
-    .date("August 15, 2022")
-    .time("10:00")
-    .petAllowed(true)
-    .organizer("Art Enthusiasts Group")
-    .build());
   }
 
   @Override

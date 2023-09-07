@@ -4,13 +4,13 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import se331.lab.lab07.dao.EventDao;
-import se331.lab.lab07.entity.Event;
+import se331.lab.lab07.entity.Organizer;
 
 @Service
 @RequiredArgsConstructor
-public class EventServiceImpl implements EventService<Event> {
-  
-  final EventDao<Event> eventDao;
+public class OrganizeServiceImpl implements EventService<Organizer> {
+
+  final EventDao<Organizer> eventDao;
 
   @Override
   public Integer getEventSize(){
@@ -18,15 +18,13 @@ public class EventServiceImpl implements EventService<Event> {
   }
 
   @Override
-  public List<Event> getEvents(Integer pageSize,Integer page){
+  public List<Organizer> getEvents(Integer pageSize,Integer page){
     return eventDao.getEvents(pageSize, page);
   }
 
   @Override
-  public Event getEvent(Long id){
+  public Organizer getEvent(Long id){
     return eventDao.getEvent(id);
   }
-
-
   
 }

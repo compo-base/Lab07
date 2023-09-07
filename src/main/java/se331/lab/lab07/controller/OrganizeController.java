@@ -1,28 +1,27 @@
 package se331.lab.lab07.controller;
+
+import java.util.List;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import lombok.RequiredArgsConstructor;
-import se331.lab.lab07.entity.Event;
-import se331.lab.lab07.service.EventService;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.server.ResponseStatusException;
-
-import java.util.List;
+import lombok.RequiredArgsConstructor;
+import se331.lab.lab07.entity.Organizer;
+import se331.lab.lab07.service.EventService;
 
 @Controller
 @RequiredArgsConstructor
-public class EventController {
+public class OrganizeController {
+    
+  final EventService<Organizer> eventService;
 
-  final EventService<Event> eventService;
-
-  @GetMapping("events")
+  @GetMapping("organizer")
   public ResponseEntity<?> getEventLists(@RequestParam(value = "_limit",required = false)
   Integer perPage,@RequestParam(value = "_page",required = false)Integer page){
-  List<Event> output = null;
+  List<Organizer> output = null;
   Integer eventSize = eventService.getEventSize();
   HttpHeaders responseHeaders = new HttpHeaders();
   responseHeaders.set("x-total-count",String.valueOf(eventSize));
@@ -34,16 +33,5 @@ public class EventController {
    }
  }
 
- @GetMapping("events/{id}")
-  public ResponseEntity<?> getEvent(@PathVariable("id")Long id){
-    Event output = eventService.getEvent(id);
-    if(output != null){
-      return ResponseEntity.ok(output);
-    }else{
-      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "the given id is not found");
-    }
-  }
-
-
-}
   
+}
