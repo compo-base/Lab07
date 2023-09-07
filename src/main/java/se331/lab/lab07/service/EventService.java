@@ -2,10 +2,8 @@ package se331.lab.lab07.service;
 
 import java.util.List;
 
-import se331.lab.lab07.entity.Event;
-
-public interface EventService {
+public interface EventService<T> {
   Integer getEventSize();
-  List<Event> getEvents(Integer pageSize,Integer page);
-  Event getEvent(Long id);
+  List<T> getEvents(Integer pageSize,Integer page);
+  T getEvent(Long id);
 }
