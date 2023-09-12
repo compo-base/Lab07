@@ -8,9 +8,9 @@ import se331.lab.lab07.entity.Event;
 
 @Service
 @RequiredArgsConstructor
-public class EventServiceImpl implements EventService<Event> {
+public class EventServiceImpl implements EventService {
   
-  final EventDao<Event> eventDao;
+  final EventDao eventDao;
 
   @Override
   public Integer getEventSize(){

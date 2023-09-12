@@ -7,7 +7,7 @@ import jakarta.annotation.PostConstruct;
 import se331.lab.lab07.entity.Event;
 
 @Repository
-public class EventDaoImpl implements EventDao<Event> {
+public class EventDaoImpl implements EventDao{
 
   List<Event> eventList;
 

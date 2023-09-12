@@ -7,7 +7,7 @@ import jakarta.annotation.PostConstruct;
 import se331.lab.lab07.entity.Organizer;
 
 @Repository
-public class OrganizerDaoImpl implements EventDao<Organizer> {
+public class OrganizerDaoImpl implements OrganizerDao{
 
   List<Organizer> organizerList;
 

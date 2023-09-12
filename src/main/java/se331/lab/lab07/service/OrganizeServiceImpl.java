@@ -3,14 +3,14 @@ package se331.lab.lab07.service;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
-import se331.lab.lab07.dao.EventDao;
+import se331.lab.lab07.dao.OrganizerDao;
 import se331.lab.lab07.entity.Organizer;
 
 @Service
 @RequiredArgsConstructor
-public class OrganizeServiceImpl implements EventService<Organizer> {
+public class OrganizeServiceImpl implements OrganizerService{
 
-  final EventDao<Organizer> eventDao;
+  final OrganizerDao eventDao;
 
   @Override
   public Integer getEventSize(){

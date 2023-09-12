@@ -17,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EventController {
 
-  final EventService<Event> eventService;
+  final EventService eventService;
 
   @GetMapping("events")
   public ResponseEntity<?> getEventLists(@RequestParam(value = "_limit",required = false)
